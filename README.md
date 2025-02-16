@@ -19,7 +19,7 @@ A simple Python application using Tkinter to select and display video from a cap
 1. Clone the repository:
    ```sh
    git clone https://github.com/miku00151/PythonVideoCapture.git
-   cd capture-card-viewer
+   cd PythonVideoCapture
    ```
 2. Install dependencies:
    ```sh
@@ -29,7 +29,7 @@ A simple Python application using Tkinter to select and display video from a cap
 ## Usage
 Run the script:
 ```sh
-python capture_card_viewer.py
+python main.py
 ```
 
 ## Author
