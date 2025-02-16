@@ -18,7 +18,7 @@ A simple Python application using Tkinter to select and display video from a cap
 ## Installation
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/capture-card-viewer.git
+   git clone https://github.com/miku00151/PythonVideoCapture.git
    cd capture-card-viewer
    ```
 2. Install dependencies:
