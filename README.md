@@ -33,7 +33,7 @@ python main.py
 ```
 
 ## Author
-ChatGPT
+ChatGPT, miku00151
 
 ## License
 This project is licensed under the MIT License.
