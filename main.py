@@ -8,45 +8,45 @@ from pygrabber.dshow_graph import FilterGraph
 class CaptureCardViewer:
     def __init__(self, root):
         self.root = root
-        self.root.title("影像擷取卡顯示器")
+        self.root.title("Video Capture Viewer")
 
-        # 取得可用的影像擷取裝置
+        # Get video capture device here.
         self.graph = FilterGraph()
         self.devices = self.graph.get_input_devices()
 
-        # 解析度選項 (16:9)
+        # resolution opinions 
         self.resolutions = {
             "640x360 (16:9)": (640, 360),
             "1280x720 (16:9)": (1280, 720),
             "1920x1080 (16:9)": (1920, 1080)
         }
 
-        # FPS 選項
+        # FPS
         self.fps_options = [15, 30, 60]
 
-        # 建立 UI 元件
-        self.device_label = tk.Label(root, text="選擇影像擷取卡:")
+        # UI
+        self.device_label = tk.Label(root, text="Video Capture:")
         self.device_label.pack()
 
         self.device_combobox = ttk.Combobox(root, values=self.devices)
         self.device_combobox.pack()
 
-        # 選擇解析度
-        self.resolution_label = tk.Label(root, text="選擇解析度:")
+        # Resolution
+        self.resolution_label = tk.Label(root, text="Resolution:")
         self.resolution_label.pack()
         self.resolution_combobox = ttk.Combobox(root, values=list(self.resolutions.keys()))
-        self.resolution_combobox.current(1)  # 預設選擇 1280x720
+        self.resolution_combobox.current(1)  # Default resolution is 1280x720.
         self.resolution_combobox.pack()
 
         # 選擇 FPS
-        self.fps_label = tk.Label(root, text="選擇 FPS:")
+        self.fps_label = tk.Label(root, text="FPS:")
         self.fps_label.pack()
         self.fps_combobox = ttk.Combobox(root, values=self.fps_options)
-        self.fps_combobox.current(1)  # 預設 30 FPS
+        self.fps_combobox.current(1)  # Default FPS is 30.
         self.fps_combobox.pack()
 
 
-        self.start_button = tk.Button(root, text="開啟影像", command=self.start_capture)
+        self.start_button = tk.Button(root, text="Start View", command=self.start_capture)
         self.start_button.pack()
 
     def start_capture(self):
@@ -54,7 +54,7 @@ class CaptureCardViewer:
         if selected_index == -1:
             return
         
-        # 取得使用者選擇的解析度與 FPS
+        # Get selected resolution and FPS.
         selected_fps = int(self.fps_combobox.get())
         selected_resolution = self.resolution_combobox.get()
         width, height = self.resolutions[selected_resolution]
@@ -66,7 +66,7 @@ class CaptureCardViewer:
         self.video_label = tk.Label(self.capture_window)
         self.video_label.pack()
 
-        self.cap = cv2.VideoCapture(selected_index)  # 開啟影像擷取設備
+        self.cap = cv2.VideoCapture(selected_index)  # Start video capture view
         self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, width)
         self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, height)
         self.cap.set(cv2.CAP_PROP_FPS, selected_fps)
