@@ -60,7 +60,7 @@ class CaptureCardViewer:
         width, height = self.resolutions[selected_resolution]
 
         self.capture_window = tk.Toplevel(self.root)
-        self.capture_window.title("影像擷取卡視窗")
+        self.capture_window.title("View Window")
         self.capture_window.resizable(False,False)
 
         self.video_label = tk.Label(self.capture_window)
