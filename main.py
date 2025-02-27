@@ -38,7 +38,7 @@ class CaptureCardViewer:
         self.resolution_combobox.current(1)  # Default resolution is 1280x720.
         self.resolution_combobox.pack()
 
-        # 選擇 FPS
+        # FPS
         self.fps_label = tk.Label(root, text="FPS:")
         self.fps_label.pack()
         self.fps_combobox = ttk.Combobox(root, values=self.fps_options)
